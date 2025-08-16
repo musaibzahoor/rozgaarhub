@@ -1,0 +1,5 @@
+[
+  { "id": "j1", "title": "Plumber for Kitchen Sink", "category": "Plumber", "location": "Srinagar", "pay": 1200, "description": "Fix leakage and install faucet.", "tags": ["today"], "date": "2025-08-16" },
+  { "id": "j2", "title": "Electrician - Wiring Check", "category": "Electrician", "location": "Baramulla", "pay": 1500, "description": "Inspect and repair loose wiring.", "tags": ["this-week"], "date": "2025-08-18" },
+  { "id": "j3", "title": "Mason - Boundary Wall", "category": "Mason", "location": "Anantnag", "pay": 2500, "description": "Lay bricks for 20ft wall.", "tags": ["urgent"], "date": "2025-08-20" }
+]

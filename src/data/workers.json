@@ -1,0 +1,4 @@
+[
+  { "id": "w1", "name": "Adil Ahmad", "skill": "Plumber", "rating": 4.8, "yearsExperience": 6, "location": "Srinagar", "hasTransport": true, "dailyRate": 1400, "serviceAreas": ["Srinagar","Budgam"], "bio": "Expert in bathroom fittings and leak repairs." },
+  { "id": "w2", "name": "Bilal Lone", "skill": "Electrician", "rating": 4.6, "yearsExperience": 5, "location": "Baramulla", "hasTransport": false, "dailyRate": 1500, "serviceAreas": ["Baramulla","Sopore"], "bio": "Residential wiring and fault diagnostics." }
+]
