@@ -1,0 +1,60 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Worker {
+  id        Int     @id @default(autoincrement())
+  name      String
+  skill     String
+  phone     String
+  location  String
+  transport Boolean @default(false)
+
+  bookings  Booking[]
+}
+
+model Employer {
+  id        Int     @id @default(autoincrement())
+  name      String
+  email     String  @unique
+  phone     String
+  location  String
+
+  jobs      Job[]
+  bookings  Booking[]
+}
+
+model Job {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  pay         Float
+  location    String
+  transport   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+
+  employerId  Int
+  employer    Employer @relation(fields: [employerId], references: [id])
+
+  bookings    Booking[]
+}
+
+model Booking {
+  id        Int      @id @default(autoincrement())
+  status    String   @default("pending") // pending → confirmed → completed
+  createdAt DateTime @default(now())
+
+  jobId      Int
+  job        Job      @relation(fields: [jobId], references: [id])
+
+  workerId   Int
+  worker     Worker   @relation(fields: [workerId], references: [id])
+
+  employerId Int
+  employer   Employer @relation(fields: [employerId], references: [id])
+}
