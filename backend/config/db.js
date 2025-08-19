@@ -1,4 +1,13 @@
 import mongoose from "mongoose";
+// backend/config/db.js
+const { Sequelize } = require('sequelize');
+
+const sequelize = new Sequelize('postgres://musaib:musaib123@localhost:5432/rozgaarhub', {
+  dialect: 'postgres',
+  logging: false,
+});
+
+module.exports = sequelize;
 
 const connectDB = async () => {
   try {
