@@ -7,6 +7,8 @@ import UserDashboard from './pages/Dashboard/UserDashboard';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import { FaWhatsapp } from "react-icons/fa";
+
 
 export default function App() {
   return (

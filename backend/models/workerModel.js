@@ -1,52 +1,25 @@
-// // backend/models/workerModel.js
-// import mongoose from 'mongoose';
+import { DataTypes } from "sequelize";
+import sequelize from "../config/db.js";
 
-// const workerSchema = new mongoose.Schema(
-//   {
-//     name: {
-//       type: String,
-//       required: true,
-//       trim: true,
-//     },
-//     skill: {
-//       type: String,
-//       required: true,
-//     },
-//     phone: {
-//       type: String,
-//       required: true,
-//       unique: true,
-//     },
-//     location: {
-//       type: String,
-//       required: true,
-//     },
-//     transportAvailable: {
-//       type: Boolean,
-//       default: false,
-//     },
-//     rating: {
-//       type: Number,
-//       default: 0,
-//     },
-//   },
-//   {
-//     timestamps: true,
-//   }
-// );
-
-// const Worker = mongoose.model('Worker', workerSchema);
-
-// export default Worker;
-const mongoose = require('mongoose');
-
-const WorkerSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  email: { type: String, required: true },
-  phone: { type: String, required: true },
-  transport: { type: Boolean, default: false },
-  location: { type: String },   // removed `required: true`
-  skill: { type: String }       // removed `required: true`
+const Worker = sequelize.define("Worker", {
+  id: {
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    primaryKey: true,
+  },
+  name: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  email: {
+    type: DataTypes.STRING,
+    unique: true,
+    allowNull: false,
+  },
+  password: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
 });
 
-module.exports = mongoose.model('Worker', WorkerSchema);
+export default Worker;
