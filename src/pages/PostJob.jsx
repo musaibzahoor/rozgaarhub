@@ -28,7 +28,7 @@ export default function PostJob() {
         </Select>
         <Input label="Location (City)" required value={form.location} onChange={e=>setForm(s=>({...s,location:e.target.value}))} />
         <Input label="Date" type="date" value={form.date} onChange={e=>setForm(s=>({...s,date:e.target.value}))} />
-        <Input label="Expected Hours" type="number" value={form.hours} onChange={e=>setForm(s=>({...s,hours:e.target.value}))} />
+        <Input label="Expected Days" type="number" value={form.hours} onChange={e=>setForm(s=>({...s,hours:e.target.value}))} />
         <Input label="Budget / Pay (₹)" type="number" required value={form.pay} onChange={e=>setForm(s=>({...s,pay:e.target.value}))} />
         <Select label="Transport Required?" value={form.transportRequired} onChange={e=>setForm(s=>({...s,transportRequired:e.target.value}))}>
           <option>No</option><option>Yes</option>

@@ -1,8 +1,12 @@
+// 
+
+
+
 import express from "express";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import User from "../models/User.js";
-
+import authMiddleware from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
@@ -48,6 +52,19 @@ router.post("/login", async (req, res) => {
     });
 
     res.json({ token });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server error");
+  }
+});
+
+// ✅ NEW: Who am I route
+router.get("/me", authMiddleware, async (req, res) => {
+  try {
+    const user = await User.findByPk(req.user.id, {
+      attributes: ["id", "name", "email"], // don’t send password
+    });
+    res.json(user);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server error");
